@@ -1,2 +1,20 @@
 # CatchEmailTools
-一款为 macOS 打造的轻量级邮件处理工具箱，基于 C++ 与 Qt 框架开发。 核心功能包括：实时监控邮件目录、智能去重逻辑、以及直观的进度条可视化。专为追求效率的开发者和高级用户设计，兼顾原生体验与处理性能。 🚀 高效原生性能 🔍 精准去重算法 🎨 现代化 Qt 界面
+A lightweight, high-performance email processing tool for macOS, built with C++ and Qt.
+Features
+Real-time email directory monitoring
+Intelligent duplicate email detection
+Visual progress bar and status feedback
+Clean, native Qt UI
+High efficiency & low resource usage
+Support for URL change detection
+Tech Stack
+C++
+Qt Framework
+macOS Native
+Usage
+Download the latest release from Releases
+Open the application
+Select your email directory
+Start monitoring & processing
+License
+MIT License
