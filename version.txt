@@ -1,0 +1,2 @@
+latest_version=3.0
+download_url=https://raw.githubusercontent.com/Caspian-dev813/CatchEmailTools/main/CatchEmailTools%203.0.zip
