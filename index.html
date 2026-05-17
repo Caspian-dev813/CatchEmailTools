@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>CatchEmailTools · 邮件处理工具箱 历代版本下载</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f5f7fc 0%, #eef2f8 100%);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "SF Pro Text", "Helvetica Neue", Helvetica, "Roboto", system-ui, sans-serif;
+            color: #1e293b;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .badge {
+            background: rgba(0, 122, 255, 0.12);
+            backdrop-filter: blur(2px);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #007aff;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 1.5rem;
+            border: 0.5px solid rgba(0, 122, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e2b3c, #2c4b6e);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.6rem;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            color: #475569;
+            max-width: 650px;
+            margin: 0 auto;
+            font-weight: 440;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+
+        .mac-os-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #ffffffcc;
+            backdrop-filter: blur(4px);
+            padding: 0.4rem 1rem;
+            border-radius: 60px;
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+            border: 0.5px solid #d4dcec;
+        }
+
+        .grid-main {
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 2rem;
+            margin: 2rem 0 2.5rem;
+        }
+
+        .features-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            border: 0.5px solid rgba(255,255,255,0.6);
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 620;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid #007aff;
+            padding-left: 1rem;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            background: white;
+            padding: 1.1rem 1.3rem;
+            border-radius: 1.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 0.5px solid #edf2f7;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px -12px rgba(0, 122, 255, 0.15);
+            border-color: #cbdff2;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            background: #f0f7ff;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 28px;
+            flex-shrink: 0;
+        }
+
+        .feature-text h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+            color: #0f172a;
+        }
+
+        .feature-text p {
+            color: #475569;
+            font-size: 0.9rem;
+        }
+
+        .download-card {
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+            padding: 1.8rem;
+            position: sticky;
+            top: 2rem;
+            border: 1px solid #eef2ff;
+        }
+
+        .download-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .version-chip {
+            background: #eef2ff;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 0.8rem;
+        }
+
+        .download-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .platform-selector {
+            margin: 1.2rem 0 1rem;
+        }
+
+        .selector-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #2c3e66;
+            margin-bottom: 8px;
+        }
+
+        .custom-select {
+            position: relative;
+            width: 100%;
+        }
+
+        .custom-select select {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            background: #f8fafc;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 60px;
+            appearance: none;
+            cursor: pointer;
+            font-family: inherit;
+            color: #0f172a;
+            transition: all 0.2s ease;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="%23334155" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2rem;
+        }
+
+        .custom-select select:hover {
+            border-color: #007aff;
+            background-color: #ffffff;
+        }
+
+        .version-selector {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .version-selector label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: block;
+            margin-bottom: 6px;
+            color: #1e293b;
+        }
+
+        .version-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .version-btn {
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: monospace;
+        }
+
+        .version-btn.active {
+            background: #007aff;
+            border-color: #007aff;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0,122,255,0.3);
+        }
+
+        .version-btn:hover:not(.active) {
+            background: #e6edf6;
+            border-color: #cbd5e1;
+            transform: translateY(-1px);
+        }
+
+        .file-info {
+            background: #f8fafc;
+            border-radius: 1.2rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.8rem;
+            font-family: monospace;
+            word-break: break-all;
+            color: #334155;
+            border: 0.5px solid #e2e8f0;
+        }
+
+        .download-action {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            margin: 1.2rem 0;
+        }
+
+        .btn-download {
+            display: block;
+            width: 100%;
+            background: #007aff;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 1rem 0;
+            text-align: center;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: 0.2s ease;
+            box-shadow: 0 4px 8px rgba(0,122,255,0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-download:hover {
+            background: #005fc1;
+            transform: scale(0.98);
+            box-shadow: 0 6px 14px rgba(0,98,204,0.25);
+        }
+
+        .permission-note {
+            background: #fff7e5;
+            border-left: 4px solid #f5a623;
+            padding: 0.9rem;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            margin: 1rem 0;
+            color: #7a6300;
+            background: #fef8e7;
+        }
+
+        .permission-note strong {
+            color: #b45f06;
+        }
+
+        .footnote {
+            font-size: 0.7rem;
+            text-align: center;
+            color: #6c7a91;
+            margin-top: 1rem;
+            border-top: 0.5px solid #e9edf2;
+            padding-top: 1rem;
+        }
+
+        .arch-badge {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .arch {
+            background: #eef2ff;
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: #155e9e;
+        }
+
+        /* 倒计时弹窗样式 */
+        .download-toast-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .download-toast {
+            background: white;
+            border-radius: 2rem;
+            padding: 2rem 2.5rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            animation: bounceIn 0.3s ease;
+        }
+        .toast-circle {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+        }
+        .toast-circle-svg {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-90deg);
+        }
+        .toast-circle-bg {
+            stroke: #e2e8f0;
+        }
+        .toast-circle-progress {
+            stroke: #007aff;
+            transition: stroke-dashoffset 1s linear;
+        }
+        .toast-countdown {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #007aff;
+        }
+        .toast-text {
+            color: #1e293b;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .download-toast-overlay.fade-out {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 860px) {
+            .grid-main {
+                grid-template-columns: 1fr;
+            }
+            .download-card {
+                position: relative;
+                top: 0;
+            }
+            h1 {
+                font-size: 2.3rem;
+            }
+            .version-buttons {
+                justify-content: center;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.75rem;
+            color: #6c7a91;
+            border-top: 0.5px solid #dce5f0;
+            padding-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <div class="badge">
+            <span>🛠️</span> 正式发布 · 全版本归档
+        </div>
+        <h1>CatchEmailTools</h1>
+        <div class="subhead">
+            专为 macOS 打造的轻量级邮件处理工具箱 — 基于 C++ 与 Qt 框架<br>
+            实时监控 · 智能去重 · 原生性能
+        </div>
+        <div class="mac-os-badge">
+            🍎 macOS 13+ ｜ 原生 Silicon 支持
+        </div>
+    </div>
+
+    <div class="grid-main">
+        <div class="features-panel">
+            <div class="section-title">
+                ⚡ 核心特性
+            </div>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🚀</div>
+                    <div class="feature-text">
+                        <h3>高效原生性能</h3>
+                        <p>C++ / Qt 底层构建，极低资源占用，毫秒级邮件目录扫描。完美契合 macOS 原生事件驱动机制。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <div class="feature-text">
+                        <h3>精准去重算法</h3>
+                        <p>智能语义比对 + 内容指纹，避免重复邮件堆积。支持自定义规则，释放磁盘空间。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎨</div>
+                    <div class="feature-text">
+                        <h3>现代化 Qt 界面</h3>
+                        <p>原生风格组件，深色/浅色自适应。直观的进度条 + 实时日志反馈，符合 macOS 交互直觉。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📁</div>
+                    <div class="feature-text">
+                        <h3>实时邮件目录监控</h3>
+                        <p>文件夹变动即时响应，支持 MBOX / Maildir / 自定义目录。让邮件工作流自动化。</p>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 1.5rem; background:#eef2ff30; border-radius: 1rem; padding: 0.8rem 1rem;">
+                <span style="font-weight: 500;">🎯 适用人群：</span> 开发者、运维工程师、邮件分析师、效率追求者。
+            </div>
+        </div>
+
+        <div class="download-card">
+            <div class="download-header">
+                <div class="version-chip">历史版本 & 最新稳定版</div>
+                <div class="download-title">📥 下载任意版本</div>
+                <div class="arch-badge">
+                    <span class="arch">🍎 Apple Silicon (ARM64)</span>
+                    <span class="arch">📦 所有版本均适配 macOS</span>
+                </div>
+                <div style="font-size: 0.7rem; margin-top: 6px; color:#3b4e66;">选择版本号，一键下载对应 tar.gz</div>
+            </div>
+
+            <div class="platform-selector">
+                <div class="selector-label">
+                    <span>🖥️ 选择操作系统</span>
+                </div>
+                <div class="custom-select">
+                    <select id="platformSelect">
+                        <option value="macos" selected>🍎 macOS (Apple Silicon 兼容包)</option>
+                        <option value="windows" disabled>😀 Windows 版本 (即将开放，敬请期待)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="version-selector">
+                <label>📌 选择版本 (macOS ARM64)</label>
+                    <div class="version-buttons" id="versionButtons">
+                        <button data-version="v1.0" class="version-btn">v1.0</button>
+                        <button data-version="v2.0" class="version-btn">v2.0</button>
+                        <button data-version="v3.0" class="version-btn">v3.0</button>
+                        <button data-version="v3.1" class="version-btn">v3.1</button>
+                        <button data-version="v4.0" class="version-btn">v4.0</button>
+                        <button data-version="v4.1" class="version-btn active">v4.1 (最新)</button>
+                    </div>
+            </div>
+
+            <div class="file-info" id="dynamicFileInfo">
+                📦 CatchEmailTools_Darwin_arm64_silicon_4.1.tar.gz<br>
+                🔒 签名压缩包 | 稳定版 性能增强
+            </div>
+
+            <div class="download-action">
+                <a id="downloadButton" 
+                   href="https://github.com/Caspian-dev813/CatchEmailTools/releases/download/v4.1/CatchEmailTools_Darwin_arm64_silicon_4.1.tar.gz"
+                   class="btn-download"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    ⬇️ 下载 CatchEmailTools v4.1
+                </a>
+            </div>
+
+            <div class="permission-note" id="permissionNote">
+                <strong>⚠️ macOS 运行须知</strong><br>
+                首次使用前，请前往「系统设置 → 隐私与安全性 → 辅助功能/完全磁盘访问权限」中，<br>
+                <strong>授予 CatchEmailTools 相应权限</strong>，以确保邮件目录监控及文件操作正常运行。
+            </div>
+
+            <div style="font-size: 0.75rem; color:#2d3a4b; margin: 0.4rem 0;">
+                💡 下载后若提示“无法验证开发者”，请右键点击应用选择「打开」，或前往系统设置允许运行。<br>
+                ✔️ 基于 Qt 6.5 + C++20 构建，兼容 macOS Ventura 及以上。
+            </div>
+
+            <div class="footnote">
+                🌐 开源项目 · GitHub Release 自动构建 · 所有版本均提供 ARM64 原生包<br>
+                校验 SHA256 可查阅仓库 Release 页面
+            </div>
+        </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; margin-top: 1rem;">
+        <div style="flex: 1; background: rgba(255,255,240,0.4); border-radius: 1.5rem; padding: 1.2rem;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 1.6rem;">📊</span>
+                <span><strong>直观进度条可视化</strong> — 批量处理、去重扫描每一步都清晰可见，支持实时取消或重试。</span>
+            </div>
+        </div>
+        <div style="flex: 1; background: rgba(240,248,255,0.6); border-radius: 1.5rem; padding: 1.2rem;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-size: 1.6rem;">⚡</span>
+                <span><strong>C++ 核心 + Qt 线程池</strong> — 多核优化，大邮件目录处理不卡 UI，专为开发者调校。</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 1rem; text-align: center; background: #f8fafd; border-radius: 2rem; padding: 1rem;">
+        <div style="font-weight: 500;">📌 想获取最新源代码或参与贡献？</div>
+        <div style="margin-top: 0.4rem; font-size: 0.85rem;">GitHub 仓库: <strong>CatchEmailTools</strong> — 欢迎 Star 与反馈，更多 Release 版本可供下载</div>
+        <div style="margin-top: 0.6rem;">
+            <a href="#" style="text-decoration: none; color: #007aff; font-weight: 500;" id="repoLinkHint">🔗 访问 GitHub Releases 页面</a>
+        </div>
+    </div>
+
+    <footer>
+        CatchEmailTools © 2026 · 基于 MIT 开源协议 · 专为 macOS 开发者构建的轻量级邮件工具集<br>
+        需要帮助？请查阅 GitHub 仓库 Wiki 或提交 Issue。
+    </footer>
+</div>
+
+<script>
+    (function() {
+        const versionMap = {
+            "v1.0": {
+                url: "https://github.com/Caspian-dev813/CatchEmailTools/releases/download/v4.1/CatchEmailTools_Darwin_arm64_silicon_1.0.tar.gz",
+                displayName: "CatchEmailTools_Darwin_arm64_silicon_1.0.tar.gz",
+                desc: "首个正式版 · 核心去重与监控原型"
+            },
+            "v2.0": {
+                url: "https://github.com/Caspian-dev813/CatchEmailTools/releases/download/v4.1/CatchEmailTools_Darwin_arm64_silicon_2.0.tar.gz",
+                displayName: "CatchEmailTools_Darwin_arm64_silicon_2.0.tar.gz",
+                desc: "性能优化 · 新增邮件目录实时监控"
+            },
+            "v3.0": {
+                url: "https://github.com/Caspian-dev813/CatchEmailTools/releases/download/v4.1/CatchEmailTools_Darwin_arm64_silicon_3.0.tar.gz",
+                displayName: "CatchEmailTools_Darwin_arm64_silicon_3.0.tar.gz",
+                desc: "现代化界面重构 + 进度条增强"
+            },
+            "v3.1": {
+                url: "https://github.com/Caspian-dev813/CatchEmailTools/releases/download/v4.1/CatchEmailTools_Darwin_arm64_silicon_3.1.tar.gz",
+                displayName: "CatchEmailTools_Darwin_arm64_silicon_3.1.tar.gz",
+                desc: "流畅性飞速提升 · 多重任务不卡顿"
+            },
+            "v4.0": {
+                url: "https://github.com/Caspian-dev813/CatchEmailTools/releases/download/v4.1/CatchEmailTools_Darwin_arm64_silicon_4.0.tar.gz",
+                displayName: "CatchEmailTools_Darwin_arm64_silicon_4.0.tar.gz",
+                desc: "Qt6 迁移 & 性能飞跃，多线程优化，新增Chrome支持"
+            },
+            "v4.1": {
+                url: "https://github.com/Caspian-dev813/CatchEmailTools/releases/download/v4.1/CatchEmailTools_Darwin_arm64_silicon_4.1.tar.gz",
+                displayName: "CatchEmailTools_Darwin_arm64_silicon_4.1.tar.gz",
+                desc: "最新稳定版 · 智能去重算法增强 & 稳定性提升"
+            }
+        };
+
+        let currentVersion = "v4.1";
+        const downloadBtn = document.getElementById('downloadButton');
+        const dynamicFileInfo = document.getElementById('dynamicFileInfo');
+        const versionBtns = document.querySelectorAll('.version-btn');
+        const platformSelect = document.getElementById('platformSelect');
+        const permissionNote = document.getElementById('permissionNote');
+
+        function updateUIForVersion(version) {
+            const info = versionMap[version];
+            if (!info) return;
+            downloadBtn.href = info.url;
+            downloadBtn.innerText = `⬇️ 下载 CatchEmailTools ${version}`;
+            dynamicFileInfo.innerHTML = `📦 ${info.displayName}<br>🔒 签名压缩包 | ${info.desc}`;
+            currentVersion = version;
+            versionBtns.forEach(btn => {
+                if (btn.getAttribute('data-version') === version) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        versionBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const ver = btn.getAttribute('data-version');
+                if (ver && versionMap[ver]) {
+                    updateUIForVersion(ver);
+                }
+            });
+        });
+
+        function handlePlatformChange() {
+            const isMac = platformSelect.value === 'macos';
+            if (!isMac) {
+                downloadBtn.disabled = true;
+                downloadBtn.style.opacity = '0.6';
+                downloadBtn.style.pointerEvents = 'none';
+                downloadBtn.href = 'javascript:void(0);';
+                downloadBtn.innerText = '🧑‍💻 Windows 版本即将开放';
+                dynamicFileInfo.innerHTML = `😀 Windows 原生版本正在开发中，基于 Qt 跨平台架构<br>预计后续推出 .exe 安装包，届时将完全支持邮件处理工作流。`;
+                permissionNote.innerHTML = `<strong>📢 Windows 版本开发动态</strong><br>
+                CatchEmailTools 团队正在积极适配 Windows 11/10 平台，保持同样高效的邮件去重与监控能力。<br>
+                敬请关注 GitHub Release 更新，第一时间获取 Windows 体验版。`;
+            } else {
+                downloadBtn.disabled = false;
+                downloadBtn.style.opacity = '1';
+                downloadBtn.style.pointerEvents = 'auto';
+                updateUIForVersion(currentVersion);
+                permissionNote.innerHTML = `<strong>⚠️ macOS 运行须知</strong><br>
+                首次使用前，请前往「系统设置 → 隐私与安全性 → 辅助功能/完全磁盘访问权限」中，<br>
+                <strong>授予 CatchEmailTools 相应权限</strong>，以确保邮件目录监控及文件操作正常运行。`;
+            }
+        }
+
+        platformSelect.addEventListener('change', handlePlatformChange);
+        handlePlatformChange();
+
+        // 带有圆形倒计时的下载弹窗（3秒）
+        downloadBtn.addEventListener('click', function(e) {
+            if (downloadBtn.disabled) {
+                e.preventDefault();
+                console.log('Windows版本暂未开放');
+                return;
+            }
+            
+            e.preventDefault();
+            
+            const existingOverlay = document.querySelector('.download-toast-overlay');
+            if (existingOverlay) return;
+            
+            const overlay = document.createElement('div');
+            overlay.className = 'download-toast-overlay';
+            overlay.innerHTML = `
+                <div class="download-toast">
+                    <div class="toast-circle">
+                        <svg class="toast-circle-svg" viewBox="0 0 100 100">
+                            <circle class="toast-circle-bg" cx="50" cy="50" r="45" fill="none" stroke="#e2e8f0" stroke-width="6"/>
+                            <circle class="toast-circle-progress" cx="50" cy="50" r="45" fill="none" stroke="#007aff" stroke-width="6" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="0"/>
+                        </svg>
+                        <span class="toast-countdown">3</span>
+                    </div>
+                    <div class="toast-text">你的下载应该很快就会开始</div>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            
+            let countdown = 3;
+            const countdownSpan = overlay.querySelector('.toast-countdown');
+            const progressCircle = overlay.querySelector('.toast-circle-progress');
+            const circumference = 283;
+            progressCircle.style.strokeDashoffset = '0';
+            
+            const timer = setInterval(() => {
+                countdown--;
+                countdownSpan.textContent = countdown;
+                const offset = circumference - (countdown / 3) * circumference;
+                progressCircle.style.strokeDashoffset = offset;
+                
+                if (countdown <= 0) {
+                    clearInterval(timer);
+                    overlay.classList.add('fade-out');
+                    setTimeout(() => {
+                        overlay.remove();
+                        window.open(downloadBtn.href, '_blank');
+                    }, 300);
+                }
+            }, 1000);
+        });
+
+        const repoLink = document.getElementById('repoLinkHint');
+        if (repoLink) {
+            repoLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.open('https://github.com/Caspian-dev813/CatchEmailTools', '_blank');
+            });
+        }
+
+        const footerEl = document.querySelector('footer');
+        if (footerEl) {
+            const year = new Date().getFullYear();
+            footerEl.innerHTML = footerEl.innerHTML.replace('2025', year);
+        }
+    })();
+</script>
+</body>
+</html>
