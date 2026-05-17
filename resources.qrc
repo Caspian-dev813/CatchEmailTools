@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>sleeping.png</file>
+        <file>grinning.png</file>
+        <file>sad.png</file>
+        <file>winking.png</file>
+        <file>thinking.png</file>
+        <file>sleepy.png</file>
+        <file>CatchEmailTools.icns</file>
+    </qresource>
+</RCC>
